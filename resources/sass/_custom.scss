@@ -1,0 +1,59 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+.custom-jumbo{
+    background-image: url('/storage/img/shutterstock_1119270824_2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 130px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a {
+    color: black;
+}
+
+// Navbar
+.navbar{
+    background-color: #1d3557;
+}
+
+// Custom Link Border
+.custom-link-border {
+    border: solid 3px #dee2e6;
+    border-radius: 0.5rem;
+}
+
+// Panel
+#panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: $body-bg;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#panel {
+    padding: 50px;
+    display: none;
+    text-align: center;
+}
+
+/*
+ * Footer
+ */
+ .blog-footer {
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: $body-bg;
+    border-top: .05rem solid #dee2e6;
+  }
+  .blog-footer p:last-child {
+    margin-bottom: 0;
+  }
