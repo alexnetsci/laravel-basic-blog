@@ -17,7 +17,7 @@ class SettingsController extends Controller
      */
     public function settings()
     {
-        $settings = Setting::latest('articles_title')->take(1)->get();
+        $settings = Setting::latest()->take(1)->get();
 
         return view('admin.settings.settings', compact('settings'));
     }

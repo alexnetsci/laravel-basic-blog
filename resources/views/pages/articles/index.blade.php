@@ -4,11 +4,6 @@
     <div class="container">
         <div class="row">
             <div  class="col-lg-3">
-                {{-- @forelse ($settings as $set)
-                    <h1 class="text-center">{{ $set }}</h1>
-                @empty
-                    <h1 class="text-center">Articles</h1>
-                @endforelse --}}
                 @foreach ($settings as $set)
                     <h1 class="text-center">{{ $set->articles_title }}</h1>
                 @endforeach

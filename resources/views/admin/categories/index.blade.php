@@ -17,7 +17,7 @@
                                 <tr>
                                     <td>{{ $category->name }}</td>
                                     <td>
-                                        <a href="{{ route('admin.categories.edit', $category) }}"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('admin.categories.edit', $category->id) }}"><i class="fas fa-edit"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>

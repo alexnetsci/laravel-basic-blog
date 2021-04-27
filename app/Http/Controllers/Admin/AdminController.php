@@ -61,7 +61,7 @@ class AdminController extends Controller
     {
         $users = User::with('roles')->get();
 
-        return view('admin.manage_users', compact('users'));
+        return view('auth.admin.manage_users', compact('users'));
     }
 
     /**

@@ -19,7 +19,7 @@ use Auth;
 class ArticlesController extends Controller
 {
     // Index
-    public function index()
+    public function index(Request $request)
     {
         if (request('category')) {
             $articles = Category::where('name', request('category'))->firstOrFail()->articles;
@@ -29,7 +29,9 @@ class ArticlesController extends Controller
             $articles = Article::orderBy('updated_at', 'desc')->get();
         }
 
-        $settings = Setting::latest('articles_title')->take(1)->get();
+        // $settings = Setting::latest('articles_title')->take(1)->get();
+
+        $settings = Setting::latest()->take(1)->get();
 
         return view('pages.articles.index', compact('articles', 'settings'));
     }
