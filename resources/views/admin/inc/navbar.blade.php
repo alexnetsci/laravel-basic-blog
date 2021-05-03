@@ -1,8 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark sticky-top flex-md-nowrap shadow">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url('/') }}" style="width: 30px;">
-            <img src="{{ asset('/storage/img/Laravel.png') }}" alt="Laravel | PHP web framework" style="width: 100%">
-        </a>
         <a class="navbar-brand" href="{{ url('/') }}">
             <i class="fas fa-user-astronaut"></i>
             <i class="fas fa-space-shuttle"></i>

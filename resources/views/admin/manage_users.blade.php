@@ -19,8 +19,6 @@
                                         <th scope="col">Roles</th>
                                         <th scope="col">Manage Roles</th>
                                         <th></th>
-                                        <th></th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,8 +42,6 @@
                                                 @endif
                                             @endif
                                         </td>
-                                        <td><i class="fas fa-eye"></i></td>
-                                        <td><i class="fas fa-edit"></i></td>
                                         <td><i class="fas fa-trash-alt"></i></td>
                                     </tr>
                                     @endforeach

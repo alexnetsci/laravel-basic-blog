@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container">
-        <div class="jumbotron custom-jumbo"></div>
+        {{-- <div class="jumbotron custom-jumbo"></div> --}}
+        <div class="jumbotron text-center">
+            <h1>Welcome!</h1>
+        </div>
         @if (count($categories) > 0 || count($tags) > 0)
             <div id="flip" class="border rounded btn btn-block">Get articles by categories or tags!</div>
             <div id="panel" class="border rounded">

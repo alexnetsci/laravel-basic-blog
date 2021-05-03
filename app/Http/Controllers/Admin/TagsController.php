@@ -50,17 +50,6 @@ class TagsController extends Controller
         return redirect(route('admin.tags.index'));
     }
 
-    // /**
-    //  * Display the specified resource.
-    //  *
-    //  * @param  \App\Tag  $tag
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function show(Tag $tag)
-    // {
-    //     //
-    // }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -101,7 +90,10 @@ class TagsController extends Controller
      */
     public function destroy(Tag $tag)
     {
+        $tagId = $tag->id;
+        $tag = Tag::find($tagId);
         $tag->delete();
+
         Session::flash('success', 'Tag has been successfully deleted!');
 
         return redirect(route('admin.tags.index'));

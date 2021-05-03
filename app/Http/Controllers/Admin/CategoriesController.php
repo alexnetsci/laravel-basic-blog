@@ -50,17 +50,6 @@ class CategoriesController extends Controller
         return redirect(route('admin.categories.index'));
     }
 
-    // /**
-    //  * Display the specified resource.
-    //  *
-    //  * @param  \App\Category  $category
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function show(Category $category)
-    // {
-    //     //
-    // }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -101,7 +90,10 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
+        $categoryId = $category->id;
+        $category = Category::find($categoryId);
         $category->delete();
+
         Session::flash('success', 'Category has been successfully deleted!');
 
         return redirect(route('admin.categories.index'));

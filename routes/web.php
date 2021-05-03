@@ -30,10 +30,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('remove-admin/{userId}', 'Admin\AdminController@removeAdmin')->name('remove_admin');
         Route::get('manage_users', 'Admin\AdminController@manageUsers')->name('manage_users');
 
-        Route::resource('/users', 'Admin\UsersController')->except('show');
         Route::get('get/users', 'Admin\UsersController@getUsers')->name('getUsers');
 
-        Route::resource('/categories', 'Admin\CategoriesController')->except('show');
+        Route::resource('categories', 'Admin\CategoriesController')->except('show');
         Route::get('get/categories', 'Admin\CategoriesController@getCategories')->name('getCategories');
 
         Route::resource('/tags', 'Admin\TagsController')->except('show');

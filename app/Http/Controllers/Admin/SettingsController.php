@@ -39,6 +39,7 @@ class SettingsController extends Controller
         $setting->update($validatedArticleTitle);
         $setting->articles_title = request()->articles_title;
         $setting->save();
+        
         Session::flash('success', 'Article title has been changed!');
 
         return redirect()->back();
