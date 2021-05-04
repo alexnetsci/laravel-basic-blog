@@ -1,10 +1,10 @@
 ## Laravel v6.20.26
---[LaravelInstaller](v4.2.5)
---[Composer](v2.0.13)
---[Node](v14.16.1)
---[npm](v.7.11.2)
---[laravel/ui](v1.2)
---[PHP](v8.0.3)
+--[LaravelInstaller v4.2.5]()
+--[Composer v2.0.13]()
+--[Node v14.16.1]()
+--[npm v.7.11.2]()
+--[laravel/ui v1.2]()
+--[php v8.0.3 / requires PHP 7.2 or greater]()
 
 --[webpackmix]--[assets]--[sass]
 
@@ -16,8 +16,8 @@
 <li>run npm install</li> 
 <li>run npm run dev</li>
 <li>run composer dump-autoload</li>
-<li>run copy .env.example to .env</li>
-<li>setup .env file:</li>
+<li>create .env file</li>
+<li>setup .env file as follows:</li>
 
     APP_NAME=Blue
     APP_ENV=local
