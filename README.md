@@ -1,10 +1,10 @@
 ## Laravel v6.20.26
---[LaravelInstaller v4.2.5]()
---[Composer v2.0.13]()
---[Node v14.16.1]()
---[npm v.7.11.2]()
---[laravel/ui v1.2]()
---[php v8.0.3 / requires PHP 7.2 or greater]()
+--[LaravelInstaller v4.2.5]
+--[Composer v2.0.13]
+--[Node v14.16.1]
+--[npm v.7.11.2]
+--[laravel/ui v1.2]
+--[php v8.0.3 / requires PHP 7.2 or greater]
 
 --[webpackmix]--[assets]--[sass]
 
