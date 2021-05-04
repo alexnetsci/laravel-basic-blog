@@ -17,6 +17,7 @@
 - run composer dump-autoload
 - create .env file
 - setup .env file as follows:
+- 
     APP_NAME=Blue
     APP_ENV=local
     APP_KEY=base64:(run php artisan key:generate)
