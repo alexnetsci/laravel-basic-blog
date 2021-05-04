@@ -15,7 +15,9 @@
                             <a href="{{ $article->path() }}">
                                 <div class="card custom-link-border h-100 mb-3" style="width: 50em">
                                     @if ($article->article_img)
-                                        <img src="{{ $article->article_img }}" class="card-img-top p-1" alt="...">
+                                        <picture>
+                                            <img src="{{ asset($article->article_img) }}" class="img-fluid rounded mb-3">
+                                        </picture>
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $article->title }}</h5>
