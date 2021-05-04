@@ -17,7 +17,9 @@
 - run composer dump-autoload
 - create .env file
 - setup .env file as follows:
-- 
+
+<li></li>
+
     APP_NAME=Blue
     APP_ENV=local
     APP_KEY=base64:(run php artisan key:generate)
@@ -39,6 +41,7 @@
     MAIL_ENCRYPTION=tls
     MAIL_FROM_ADDRESS=welcome@blue.com
     MAIL_FROM_NAME="${APP_NAME}"
+-
 
 - run php artisan key:generate
 - run php artisan migrate
