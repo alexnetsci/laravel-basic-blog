@@ -160,15 +160,27 @@ class ArticlesController extends Controller
         return redirect(route('articles.index'));
     }
 
-    /*
-    * Custom Method for validateArticle if identical (both for store and update)
-    *
-    protected function validateArticle(){
-        return request()->validate([
-            'title' => ['bail', 'required', 'unique:articles', 'max:255'],
-            'body' => 'required',
-            'tags' => 'exists:tags,id'
-        ]);
+    public function onlyTrashedArticles()
+    {
+        $articles = Article::onlyTrashed()->whereNotNull('deleted_at')->where('user_id', auth()->user()->id)->get();
+        return view('pages.articles.trash', compact('articles'));
     }
-    */
+    
+    public function restoreArticles(Request $request, $id)
+    {
+        Article::onlyTrashed()->find($id)->restore();
+
+        Session::flash('success', 'Article has been restored!');
+
+        return redirect()->route('articles.trash');
+    }
+
+    public function permanentlyDeleteArticles(Request $request, $id)
+    {
+        Article::onlyTrashed()->find($id)->forceDelete();
+
+        Session::flash('success', 'Article has been permanently deleted!');
+
+        return redirect()->route('articles.trash');
+    }
 }

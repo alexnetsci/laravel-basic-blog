@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->unique();
             $table->mediumText('body');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

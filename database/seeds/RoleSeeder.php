@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Role;
+use Illuminate\Support\Carbon;
 
 class RoleSeeder extends Seeder
 {
@@ -13,7 +14,9 @@ class RoleSeeder extends Seeder
     public function run()
     {
         Role::insert([
-            'name' => 'admin'
+            'name' => 'admin',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }

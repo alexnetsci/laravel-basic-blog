@@ -84,6 +84,7 @@
                                 <th scope="col">Tag</th>
                                 <th scope="col">Image</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -93,7 +94,7 @@
                                         @if (Auth::user()->id === $article->user_id)
                                             By You
                                         @else
-                                            {{ $article->user->username }}
+                                            {{ $article->user->name }}
                                         @endif
                                     </td>
                                     <th>{{ $article->title }}</th>
@@ -118,35 +119,23 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('articles.edit', $article) }}"><i class="fas fa-edit"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></a>
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-scrollable">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title text-danger" id="exampleModalLabel">You are about to delete the <mark class="rounded bg-danger border border-light text-light">{{ $article->title }}</mark> article!</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-footer justify-content-center">
-                                                        <h5 class="text-danger">Please confirm deletion by pressing</h5>
-                                                        <form action="{{ route('articles.destroy', $article) }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Confirm, Delete!</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('articles.destroy', $article) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="fas fa-trash-alt" onclick="return confirm('Are you sure to want to delete this record?')"></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-                        <div class="row justify-content-center">
-                            {{ $articles->links() }}
-                        </div>
+                        @if (!request('category') && !request('tag'))
+                            <div class="row justify-content-center">
+                                {{ $articles->links() }}
+                            </div>
+                        @endif
                     @else
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">

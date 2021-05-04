@@ -20,9 +20,8 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        $userRoles = Auth::user()->roles->pluck('name');
-        if (!$userRoles->contains('admin')) {
-            return redirect()->route('permission_denied');
+        if (!Auth::user()->hasRole('admin')) {
+            return redirect()->route('pages.myprofile');
         }
 
         $categories = Category::all();

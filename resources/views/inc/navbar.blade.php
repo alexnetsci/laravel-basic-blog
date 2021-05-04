@@ -42,12 +42,15 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             @if (Auth::user()->hasRole('admin'))
                                 <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
-                                <a class="dropdown-item" href="{{ route('myprofile') }}">My Profile</a>
                             @else
                                 <a class="dropdown-item" href="{{ route('myprofile') }}">My Profile</a>
                             @endif
 
                             <div class="dropdown-divider"></div>
+                            @if (Auth::user()->checkTrash())
+                                <a class="dropdown-item" href="{{ route('articles.trash') }}">Deleted Articles</a>
+                                <div class="dropdown-divider"></div>
+                            @endif
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
@@ -65,11 +68,3 @@
         </div>
     </div>
 </nav>
-
-{{-- <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
-</div> --}}

@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 use App\Permissions\HasPermissionsTrait;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -57,5 +57,16 @@ class User extends Authenticatable
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+
+    public function checkTrash()
+    {   
+        $articles = $this->articles()->onlyTrashed()->whereNotNull('deleted_at')->where('user_id', auth()->user()->id)->get();
+
+        if (count($articles) > 0) {
+            return true;
+        }
+
+        return false;
     }
 }

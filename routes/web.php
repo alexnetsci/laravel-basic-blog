@@ -13,13 +13,24 @@
 
 Route::get('/', 'PagesController@index')->name('home_page');
 
+/********/
+
 Auth::routes();
 
-Route::group(['middleware' => ['auth']], function () {
+/********/
+
+Auth::routes(['verify' => true]);
+
+Route::group(['middleware' => ['verified']], function () {
+
     Route::get('/permission-denied', 'PermissionsController@permissionDenied')->name('permission_denied');
 
+    // Users
     Route::get('/myprofile', 'PagesController@myProfile')->name('myprofile');
     Route::resource('/articles', 'ArticlesController');
+    Route::get('/pages/articles/trash', 'ArticlesController@onlyTrashedArticles')->name('articles.trash');
+    Route::get('/pages/articles/restore/{id}', 'ArticlesController@restoreArticles')->name('restore_articles');
+    Route::get('/pages/articles/permanentlyDelete/{id}', 'ArticlesController@permanentlyDeleteArticles')->name('permanently_delete_articles');
 
     Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::get('dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
@@ -37,6 +48,6 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::resource('/tags', 'Admin\TagsController')->except('show');
         Route::get('get/tags', 'Admin\TagsController@getTags')->name('getTags');
-
     });
+
 });

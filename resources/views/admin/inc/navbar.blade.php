@@ -9,6 +9,21 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ route('home_page') }}">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Blog <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('articles.index') }}">Articles</a>
+                        <a class="dropdown-item" href="{{ route('articles.create') }}">Create Article</a>
+                    </div>
+                </li>
+            </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -18,10 +33,13 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         @if (Auth::user()->hasRole('admin'))
                             <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
-                            <a class="dropdown-item" href="{{ route('myprofile') }}">My Profile</a>
                         @endif
 
                         <div class="dropdown-divider"></div>
+                            @if (Auth::user()->checkTrash())
+                                <a class="dropdown-item" href="{{ route('articles.trash') }}">Deleted Articles</a>
+                                <div class="dropdown-divider"></div>
+                            @endif
 
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
