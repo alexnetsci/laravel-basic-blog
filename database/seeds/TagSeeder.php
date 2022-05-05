@@ -13,15 +13,15 @@ class TagSeeder extends Seeder
     public function run()
     {
         Tag::insert([
-            'name' => 'PHP',
+            'name' => 'TAG 1',
         ]);
 
         Tag::insert([
-            'name' => 'Laravel',
+            'name' => 'TAG 2',
         ]);
 
         Tag::insert([
-            'name' => 'mysql',
+            'name' => 'TAG 3',
         ]);
     }
 }

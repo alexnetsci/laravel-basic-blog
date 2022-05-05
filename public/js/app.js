@@ -570,9 +570,9 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\github\blue\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\github\blue\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\github\blue\resources\sass\toastr.scss */"./resources/sass/toastr.scss");
+__webpack_require__(/*! C:\laragon\www\laravel-basic-blog\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laragon\www\laravel-basic-blog\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\laravel-basic-blog\resources\sass\toastr.scss */"./resources/sass/toastr.scss");
 
 
 /***/ })

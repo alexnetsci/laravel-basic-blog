@@ -13,11 +13,15 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::insert([
-            'name' => 'Web Development',
+            'name' => 'CAT I',
         ]);
 
         Category::insert([
-            'name' => 'Programming',
+            'name' => 'CAT II',
+        ]);
+
+        Category::insert([
+            'name' => 'CAT III',
         ]);
     }
 }
